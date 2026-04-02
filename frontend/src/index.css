@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-secondary-200;
+  }
+
+  body {
+    @apply text-secondary-800 font-sans antialiased;
+    background: linear-gradient(135deg, #e0e7ff 0%, #ddd6fe 20%, #e0f2fe 40%, #f0f9ff 60%, #f5f3ff 80%, #faf5ff 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 20s ease infinite;
+    min-height: 100vh;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  h1 {
+    @apply text-3xl font-bold;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold;
+  }
+
+  h3 {
+    @apply text-xl font-semibold;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-600 focus:ring-primary;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-100 text-secondary-700 hover:bg-secondary-200 focus:ring-secondary;
+  }
+
+  .btn-outline {
+    @apply border border-secondary-300 bg-transparent hover:bg-secondary-50 focus:ring-secondary;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent hover:bg-secondary-100 focus:ring-secondary;
+  }
+
+  .btn-destructive {
+    @apply bg-error text-white hover:bg-red-600 focus:ring-error;
+  }
+
+  .input {
+    @apply w-full px-3 py-2 border border-secondary-200 rounded-md text-sm placeholder:text-secondary-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent disabled:bg-secondary-50 disabled:cursor-not-allowed;
+  }
+
+  .label {
+    @apply text-sm font-medium text-secondary-700;
+  }
+
+  .card {
+    @apply bg-white/90 backdrop-blur-sm rounded-lg border border-white/20 shadow-lg;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-secondary-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-secondary-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-secondary-400;
+}
+
+/* Custom component styles */
+.card-hover {
+  transition: all 0.2s ease;
+}
+
+.card-hover:hover {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transform: translateY(-1px);
+}
+
+/* FullCalendar custom styles */
+.fc {
+  @apply font-sans;
+}
+
+.fc-toolbar-title {
+  @apply text-xl font-semibold text-secondary-800;
+}
+
+.fc-button {
+  @apply bg-white border border-secondary-200 text-secondary-700 px-3 py-1.5 rounded-md text-sm font-medium;
+}
+
+.fc-button:hover {
+  @apply bg-secondary-50;
+}
+
+.fc-button-active {
+  @apply bg-primary text-white border-primary;
+}
+
+.fc-button-active:hover {
+  @apply bg-primary-600;
+}
+
+.fc-today-button {
+  @apply bg-primary text-white border-primary;
+}
+
+.fc-today-button:hover {
+  @apply bg-primary-600;
+}
+
+.fc-daygrid-day-number {
+  @apply text-secondary-700 font-medium p-2;
+}
+
+.fc-day-today {
+  @apply bg-primary-50;
+}
+
+.fc-event {
+  @apply rounded px-1 py-0.5 text-xs font-medium border-0;
+}
